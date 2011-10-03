@@ -21,7 +21,7 @@
 			<div class="topbar">
 				<div class="fill">
 					<div class="container">
-						<h3><a href="#">API Tester</a></h3>					
+						<h3><a href="#">Slippers</a></h3>					
 						<ul class="hnav">
 							<li><a href="#request">Request</a></li>
 							<li><a href="#response">Response</a></li>
@@ -85,7 +85,7 @@
 							</fieldset>
 						
 							<fieldset>
-								<legend>Parameters</legend><div id="fieldset-params">&nbsp;</div>
+								<legend>Parameters</legend><div id="fieldset-params">no parameters</div>
 							</fieldset>
 						
 						</div>
@@ -146,16 +146,26 @@
 
 			</div>
 		
-		
-		
 			<div class="row">
 				<a name="response" id="response"></a>
 				<h2 class="span16">
 					Response
 				</h2>
-				<div id="response_wrapper"></div>
+				<div id="response_wrapper">
+					<span class="span16">no response</span>
+				</div>
 			</div>
 		
 		</div>
+		
+		<footer class="footer">
+	      <div class="container">
+	        <p class="pull-right"><a href="#">Back to top</a></p>
+	        <p>
+	          Slippers was built by <a href="http://ruicruz.com">ruicruz.com</a>
+	        </p>
+	      </div>
+	    </footer>
+		
 	</body>
 </html>
