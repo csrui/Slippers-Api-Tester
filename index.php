@@ -9,10 +9,9 @@
 		<link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<link rel="stylesheet" href="assets/css/bootstrap-1.1.1.min.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-		<script type="text/javascript" src="assets/js/jquery-1.6.2.min.js">
-</script>
-		<script type="text/javascript" src="assets/js/main.js">
-</script>
+
+		<script type="text/javascript" src="assets/js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="assets/js/main.js"></script>
 	</head>
 	<body>
 
