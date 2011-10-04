@@ -87,10 +87,11 @@ function setupParams(e) {
 	$xml.find('script').find('resource[name='+$('#select-resources').attr('value')+']').find('action[name='+e.target.value+']').find('param').each(function() {
 
 		var required = ($(this).attr('required') == 'true') ? 'required' : ''; 
+		var url = ($(this).attr('url') == 'true') ? true : false; 
 		var type = 'text';
 		var param = $(this).text();
 
-		$('#fieldset-params').append('<div class="clearfix '+required+'"><label>'+param+'</label><div class="input"><input type="'+type+'" name="params['+param+']" /></div></div>');
+		$('#fieldset-params').append('<div class="clearfix '+required+'"><label>'+param+'</label><div class="input"><input type="'+type+'" name="params['+param+'][value]" /><input type="hidden" name="params['+param+'][url]" value="'+url+'" /></div></div>');
 		
 	});
 	

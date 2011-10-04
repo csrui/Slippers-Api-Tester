@@ -45,8 +45,21 @@ $codes = array(
 # SETUP DATA
 $data = $_GET;
 
-$url = sprintf('%s/%s/%s.%s', $data['url'], $data['resource'], $data['action'], $data['format']);
-$params = !empty($data['params']) ? $data['params'] : array();
+$url = sprintf('%s/%s/%s', $data['url'], $data['resource'], $data['action']);
+
+# HANDLE PARAMS
+$params = array();
+if (!empty($data['params'])) {
+	foreach($data['params'] as $key => $param) {
+		if ($param['url'] == "true") {
+			$url .= '/' . $param['value'];
+		} else {
+			$params[$key] = $param['value'];
+		}
+	}
+}
+
+$url .= '.' . $data['format'];
 
 if (!empty($data['extra_params'])) {
 	$extra_params = explode("\n", $data['extra_params']);
@@ -95,7 +108,13 @@ if (!curl_errno($ch)) {
 	echo '</pre></div>';
 	
 	echo '<div class="span8"><pre>';
-	var_dump($params);
+	if (!empty($params)) {
+		foreach($params as $key => $value) {
+			echo sprintf("%s : <strong>%s</strong>\n", $key, $value);
+		}
+	} else {
+		echo 'no params';
+	}
 	echo '</pre></div>';
 
 	echo '<div class="span16">';
