@@ -3,7 +3,8 @@ var $xml = null;
 $(document).ready(function() {
 	
 	$('#select-api').attr('value', '');
-  
+	$('#url').attr('value', '');
+
 	$('#select-api').change(function() {
 		
 		if ($(this).attr('value').length == 0) return;

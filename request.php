@@ -39,7 +39,6 @@ if (!empty($data['extra_params'])) {
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_URL, $url);
 
 # HANDLE AUTH
 if (!empty($data['username']) && !empty($data['password'])) {
@@ -53,9 +52,11 @@ if (!empty($data['username']) && !empty($data['password'])) {
 if ($data['type'] == 'post') {
 	curl_setopt($ch, CURLOPT_POST, 1);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+} else {
+	$url .= '?' . http_build_query($params);
 }
 
-//make the request
+curl_setopt($ch, CURLOPT_URL, $url);
 $response = curl_exec($ch);
 
 if (!curl_errno($ch)) {

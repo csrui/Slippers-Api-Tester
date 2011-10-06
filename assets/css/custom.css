@@ -1,3 +1,7 @@
+body {
+	padding-top: 60px;
+}
+
 form div.required label {
 	color: 000;
 	font-weight: bold;
