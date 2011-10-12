@@ -49,11 +49,15 @@ if (!empty($data['username']) && !empty($data['password'])) {
 	
 }
 
-if ($data['type'] == 'post') {
-	curl_setopt($ch, CURLOPT_POST, 1);
+if ($data['type'] != 'get') {
+	
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($data['type']));
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+	
 } else {
+	
 	$url .= '?' . http_build_query($params);
+	
 }
 
 curl_setopt($ch, CURLOPT_URL, $url);
