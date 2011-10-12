@@ -7,9 +7,13 @@ $(document).ready(function() {
 
 	$('#select-api').change(function() {
 		
-		if ($(this).attr('value').length == 0) return;
+		var api_filename = $(this).attr('value');
 		
-		$.get('scripts/' + $(this).attr('value'), function(data) {
+		if (api_filename.length == 0) return;
+		
+		$('#nav-item-docs').find('a').attr('href', 'docs.php?api='  + api_filename);
+		
+		$.get('scripts/' + api_filename, function(data) {
 			
 			$xml = $(data);			
 			setupResources();
@@ -21,10 +25,25 @@ $(document).ready(function() {
   $('form').submit(function(e) {
 
 	e.preventDefault();
+	
+	var is_dirty = false;
+	
+	$('#fieldset-params').find('.required').find('input[type=text]').each(function() {
+				
+		if ($(this).val().length == 0) {
+			$(this).parent().parent().addClass('error');
+			is_dirty = true;
+		} else {
+			$(this).parent().parent().removeClass('error');
+		}
+		
+	});
 
 	$('#response_wrapper').empty();
+	
+	if (is_dirty === true) return false;
 
-	$.get('request.php', $(this).serialize(), function(response) {
+	$.get('request.php', $("#form-request").serialize(), function(response) {
 
 		$('#response_wrapper').empty().append(response);
 
