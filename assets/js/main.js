@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 	$('#response_wrapper').empty();
 	
-	if (is_dirty === true) return false;
+	// if (is_dirty === true) return false;
 
 	$.get('request.php', $("#form-request").serialize(), function(response) {
 

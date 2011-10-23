@@ -4,12 +4,13 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<title>
-			API Test
+			Slippers - API testing &amp; documentation tool
 		</title>
 		<link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-		<link rel="stylesheet" href="assets/css/bootstrap-1.1.1.min.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+		<link rel="stylesheet" href="assets/css/bootstrap-1.3.0.min.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8" />
-
+		<link rel="icon" type="image/png" href="assets/img/favicon.png">
+		
 		<script type="text/javascript" src="assets/js/jquery-1.6.2.min.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	</head>
@@ -22,9 +23,11 @@
 					<div class="container">
 						<h3><a href="#">Slippers</a></h3>					
 						<ul class="hnav">
-							<li><a href="#request">Request</a></li>
-							<li><a href="#response">Response</a></li>
+							<li><a href="index.php#request">Request</a></li>
+							<li><a href="index.php#response">Response</a></li>
+							<li id="nav-item-docs"><a href="#docs">Docs</a></li>
 						</ul>
+						<form class="pull-right"><button id="btn-go" class="primary btn">Make request</button></form>
 					</div>
 				</div>
 			</div>
@@ -32,14 +35,14 @@
 		<!-- END TOP BAR -->
 
 
-		<div id="content" class="container">
+		<div class="container">
 			<div class="row">
 				<a name="request"></a>
 				<h1 class="span16">
 					Request
 				</h1>				
 				
-					<form action="request.php" method="post" enctype="multipart/form-data">
+					<form id="form-request" action="request.php" method="post" enctype="multipart/form-data">
 						
 						<div class="span8">
 							<fieldset>	
@@ -119,12 +122,10 @@
 									<label>Type</label>
 									<div class="input">
 										<select name="type" id="select-type">
-											<option value="post">
-												POST
-											</option>
-											<option value="get">
-												GET
-											</option>
+											<option value="post">POST</option>
+											<option value="get">GET</option>
+											<option value="delete">DELETE</option>
+											<option value="put">PUT</option>
 										</select>
 									</div>
 								</div>
@@ -138,9 +139,6 @@
 							</fieldset>
 						</div>
 
-						<div class="span16 clearfix">
-							<button class="primary btn">Go</button>
-						</div>
 					</form>
 
 			</div>

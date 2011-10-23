@@ -97,8 +97,7 @@ if (!curl_errno($ch)) {
 	$geshi->set_header_type(GESHI_HEADER_DIV);
 	echo sprintf('<style type="text/css">%s</style>', $geshi->get_stylesheet());
 	echo $geshi->parse_code();
-	echo '</div>';
-	
+	echo '</div>';	
 
 }
 
