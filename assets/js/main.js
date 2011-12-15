@@ -2,25 +2,27 @@ var $xml = null;
 
 $(document).ready(function() {
 	
-	$('#select-api').attr('value', '');
+	// $('#select-api').attr('value', '');
 	$('#url').attr('value', '');
 
-	$('#select-api').change(function() {
+	// $('#nav-item-docs').find('a').attr('href', 'docs.php?api='  + api_filename);
+	
+	$.get(window.document.URL.split('=')[1], function(data) {
 		
-		var api_filename = $(this).attr('value');
+		$xml = $(data);			
+		setupResources();
 		
-		if (api_filename.length == 0) return;
-		
-		$('#nav-item-docs').find('a').attr('href', 'docs.php?api='  + api_filename);
-		
-		$.get('scripts/' + api_filename, function(data) {
-			
-			$xml = $(data);			
-			setupResources();
-			
-		}, 'xml');
-		
-	});
+	}, 'xml');
+	
+
+
+	// $('#select-api').change(function() {
+	// 	
+	// 	var api_filename = $(this).attr('value');
+	// 	
+	// 	if (api_filename.length == 0) return;
+	// 			
+	// });
 
   $('form').submit(function(e) {
 

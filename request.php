@@ -15,6 +15,7 @@ if (!empty($data['params'])) {
 		if ($param['url'] == "true") {
 			$url .= '/' . $param['value'];
 		} else {
+			if (strlen($param['value']) == 0) continue;
 			$params[$key] = $param['value'];
 		}
 	}
@@ -39,6 +40,9 @@ if (!empty($data['extra_params'])) {
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+curl_setopt($ch, CURLOPT_FRESH_CONNECT, 1);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); 
 
 # HANDLE AUTH
 if (!empty($data['username']) && !empty($data['password'])) {

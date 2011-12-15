@@ -1,4 +1,3 @@
-<?php include_once('scripts.php'); ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -23,9 +22,9 @@
 					<div class="container">
 						<h3><a href="#">Slippers</a></h3>					
 						<ul class="hnav">
-							<li><a href="index.php#request">Request</a></li>
-							<li><a href="index.php#response">Response</a></li>
-							<li id="nav-item-docs"><a href="#docs">Docs</a></li>
+							<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#request">Request</a></li>
+							<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#response">Response</a></li>
+							<li id="nav-item-docs"><a href="docs.php?schema=<?php echo $_GET['schema'] ?>">Docs</a></li>
 						</ul>
 						<form class="pull-right"><button id="btn-go" class="primary btn">Make request</button></form>
 					</div>
@@ -46,6 +45,8 @@
 						
 						<div class="span8">
 							<fieldset>	
+
+								<!-- 
 								<legend>Source</legend>						
 								<div class="clearfix required">
 									<label>API</label>
@@ -60,6 +61,7 @@
 										</select>
 									</div>
 								</div>
+								-->
 							
 								<div class="clearfix">
 									<label>URL</label>
