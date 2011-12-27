@@ -1,29 +1,39 @@
 var $xml = null;
+var api = null;
 
 $(document).ready(function() {
 	
-	// $('#select-api').attr('value', '');
+	$('#btn-load').on('click', function(e) {
+	
+		e.preventDefault();
+		
+		api = prompt("URL of the API schema", api);
+		if (api!=null && api!="") {
+
+			// window.document.URL.split('=')[1]
+			$.get(api, function(data) {
+
+				$xml = $(data);			
+				setupResources();
+				$('#nav-item-docs').find('a').attr('href', 'docs.php?api='  + api);
+
+			}, 'xml').error(function(error) {
+				
+				console.log(error);
+				
+				alert('Unable to load schema');
+				$('#nav-item-docs').find('a').attr('href', '#');
+			});
+
+		}
+		
+	});
+	
+
 	$('#url').attr('value', '');
 
-	// $('#nav-item-docs').find('a').attr('href', 'docs.php?api='  + api_filename);
 	
-	$.get(window.document.URL.split('=')[1], function(data) {
-		
-		$xml = $(data);			
-		setupResources();
-		
-	}, 'xml');
 	
-
-
-	// $('#select-api').change(function() {
-	// 	
-	// 	var api_filename = $(this).attr('value');
-	// 	
-	// 	if (api_filename.length == 0) return;
-	// 			
-	// });
-
   $('form').submit(function(e) {
 
 	e.preventDefault();
@@ -57,7 +67,6 @@ $(document).ready(function() {
 
   });
 });
-
 
 function setupResources() {
 	

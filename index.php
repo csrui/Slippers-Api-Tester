@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="assets/css/custom.css" type="text/css" media="screen" title="no title" charset="utf-8" />
 		<link rel="icon" type="image/png" href="assets/img/favicon.png">
 		
-		<script type="text/javascript" src="assets/js/jquery-1.6.2.min.js"></script>
+		<script type="text/javascript" src="assets/js/jquery-1.7.1.min.js"></script>
 		<script type="text/javascript" src="assets/js/main.js"></script>
 	</head>
 	<body>
@@ -22,11 +22,14 @@
 					<div class="container">
 						<h3><a href="#">Slippers</a></h3>					
 						<ul class="hnav">
-							<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#request">Request</a></li>
-							<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#response">Response</a></li>
-							<li id="nav-item-docs"><a href="docs.php?schema=<?php echo $_GET['schema'] ?>">Docs</a></li>
+							<li><a href="#request">Request</a></li>
+							<li><a href="#response">Response</a></li>
+							<li id="nav-item-docs"><a href="#" target="_blank">Docs</a></li>
 						</ul>
-						<form class="pull-right"><button id="btn-go" class="primary btn">Make request</button></form>
+						<form class="pull-right">
+							<button id="btn-load" class="btn">Load API</button>
+							<button id="btn-go" class="primary btn">Make request</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -63,7 +66,7 @@
 								</div>
 								-->
 							
-								<div class="clearfix">
+								<div class="clearfix required">
 									<label>URL</label>
 									<div class="input">
 										<input type="text" id="url" name="url" class="disabled">

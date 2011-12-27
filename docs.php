@@ -6,8 +6,8 @@
 require_once 'libs/Savant3-3.0.1/Savant3.php';
 $tpl = new Savant3();
 
-$tpl->filename = $_GET['schema'];
-$tpl->script = simplexml_load_string(file_get_contents($_GET['schema']));
+$tpl->filename = $_GET['api'];
+$tpl->script = simplexml_load_string(file_get_contents($_GET['api']));
 $tpl->title = sprintf('%s - version %s', $tpl->script['name'], $tpl->script['version']);
 
 $tpl->display('templates/header.tpl.php');

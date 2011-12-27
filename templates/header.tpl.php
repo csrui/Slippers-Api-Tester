@@ -15,13 +15,7 @@
 		<div class="topbar">
 	      <div class="fill">
 	        <div class="container">
-	          <a href="#" class="brand">Slippers</a>
-	          <ul class="nav">
-				<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#request">Request</a></li>
-				<li><a href="index.php?schema=<?php echo $_GET['schema'] ?>#response">Response</a></li>
-				<li id="nav-item-docs"><a href="docs.php?schema=<?php echo $_GET['schema'] ?>">Docs</a></li>
-	          </ul>
-			  <form class="pull-right"><button id="btn-go" class="primary btn">Make request</button></form>
+	          <a href="/" class="brand">Slippers documentation</a>
 	        </div>
 	      </div>
 	    </div>
