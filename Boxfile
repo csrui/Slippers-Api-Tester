@@ -1,0 +1,3 @@
+web1: #component type & number
+  php_extensions:
+    - curl
