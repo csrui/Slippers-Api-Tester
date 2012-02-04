@@ -23,7 +23,7 @@ $(document).ready(function() {
 				
 				alert('Unable to load schema');
 				$('#nav-item-docs').find('a').attr('href', '#');
-			});
+			}, 'xml');
 
 		}
 		

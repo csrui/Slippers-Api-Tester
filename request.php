@@ -55,8 +55,10 @@ if (!empty($data['username']) && !empty($data['password'])) {
 
 if ($data['type'] != 'get') {
 	
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($data['type']));
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
+	// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, strtoupper($data['type']));
+
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+	curl_setopt($ch, CURLOPT_POST, true);
 	
 } else {
 	
